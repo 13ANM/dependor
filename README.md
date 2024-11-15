@@ -29,6 +29,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: yarn install
+
       - name: Use Dependency Update Action
         uses: 13ANM/dependor@v1
         with:
@@ -44,14 +52,17 @@ jobs:
 1. Add **Dependor** to your repository by referencing it in your workflow file.
 2. Ensure you have a valid GitHub token saved in your repository secrets (`GITHUB_TOKEN`).
 3. Customize the schedule as needed (currently set to run every Monday at 10 AM EET).
+4. Make sure to include a step to install dependencies (`yarn install`) before running the action.
 
 ## Example Workflow
 
 The provided example workflow runs weekly to update dependencies. It performs the following steps:
 
 1. Checks out the repository.
-2. Uses the **Dependor** action to update dependencies.
-3. Creates a new branch with the updated dependencies and opens a pull request.
+2. Sets up Node.js environment.
+3. Installs necessary dependencies.
+4. Uses the **Dependor** action to update dependencies.
+5. Creates a new branch with the updated dependencies and opens a pull request.
 
 ## Requirements
 
