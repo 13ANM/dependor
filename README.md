@@ -53,24 +53,6 @@ jobs:
 
 - **BASE_BRANCH**: The name of the base branch to use for the pull request. Defaults to `'main'`, but can be set to `'master'` or any other branch as required.
 
-## Setup Instructions
-
-1. Add **Dependor** to your repository by referencing it in your workflow file.
-2. Ensure you have a valid GitHub token saved in your repository secrets (`GITHUB_TOKEN`).
-3. Customize the schedule as needed (currently set to run every Monday at 10 AM EET).
-4. Make sure to include a step to install dependencies (`yarn install`) before running the action.
-5. Set the **BASE_BRANCH** environment variable in the workflow if the default branch is not `'main'`.
-
-## Example Workflow
-
-The provided example workflow runs weekly to update dependencies. It performs the following steps:
-
-1. Checks out the repository.
-2. Sets up Node.js environment.
-3. Installs necessary dependencies.
-4. Uses the **Dependor** action to update dependencies.
-5. Creates a new branch with the updated dependencies and opens a pull request.
-
 ## Requirements
 
 - Node.js (uses Yarn for dependency installation)
