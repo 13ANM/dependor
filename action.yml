@@ -1,0 +1,13 @@
+name: 'Dependency Update Action'
+description: 'Automatically updates dependencies and creates a pull request.'
+author: 'Andrei Mocanu'
+inputs:
+  repo-token:
+    description: 'GitHub token to create pull requests.'
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'
+branding:
+  icon: 'refresh-cw'
+  color: 'blue'

@@ -1,0 +1,13 @@
+{
+	"name": "dependor",
+	"version": "1.0.0",
+	"description": "GitHub Action to automatically update dependencies",
+	"main": "index.js",
+	"scripts": {},
+	"dependencies": {
+		"@actions/core": "^1.6.0",
+		"@octokit/rest": "^18.12.0"
+	},
+	"author": "Andrei Mocanu",
+	"license": "MIT"
+}
