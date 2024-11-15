@@ -36,7 +36,9 @@ const PULL_REQUEST_BODY =
 			`git checkout -b ${branchName} && git add package.json yarn.lock && git commit -m "${COMMIT_MESSAGE}" && git push origin ${branchName}`
 		)
 
-		// Create a pull request
+		// Get the base branch from the workflow environment variable
+		const baseBranch = process.env.BASE_BRANCH || 'main'
+
 		const [owner, repoName] = process.env.GITHUB_REPOSITORY.split('/')
 		const octokit = new Octokit({ auth: core.getInput('repo-token') })
 		await octokit.pulls.create({
@@ -44,7 +46,7 @@ const PULL_REQUEST_BODY =
 			repo: repoName,
 			title: PULL_REQUEST_TITLE,
 			head: branchName,
-			base: 'main',
+			base: baseBranch,
 			body: PULL_REQUEST_BODY,
 		})
 

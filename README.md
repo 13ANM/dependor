@@ -41,11 +41,17 @@ jobs:
         uses: 13ANM/dependor@v1
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          BASE_BRANCH: master # Default: main
 ```
 
 ### Inputs
 
 - **repo-token**: The GitHub token used to create pull requests. This is required for pushing branches and creating pull requests.
+
+### Environment Variables
+
+- **BASE_BRANCH**: The name of the base branch to use for the pull request. Defaults to `'main'`, but can be set to `'master'` or any other branch as required.
 
 ## Setup Instructions
 
@@ -53,6 +59,7 @@ jobs:
 2. Ensure you have a valid GitHub token saved in your repository secrets (`GITHUB_TOKEN`).
 3. Customize the schedule as needed (currently set to run every Monday at 10 AM EET).
 4. Make sure to include a step to install dependencies (`yarn install`) before running the action.
+5. Set the **BASE_BRANCH** environment variable in the workflow if the default branch is not `'main'`.
 
 ## Example Workflow
 
