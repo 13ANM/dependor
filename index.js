@@ -33,7 +33,7 @@ const PULL_REQUEST_BODY =
 			new Date().toISOString().split('T')[0]
 		}`
 		await execAsync(
-			`git checkout -b ${branchName} && git add package.json yarn.lock && git commit -m "${COMMIT_MESSAGE}" && git push origin ${branchName}`
+			`git checkout -b ${branchName} && git add package.json yarn.lock && git commit -m "${COMMIT_MESSAGE}" && git push --force origin ${branchName}`
 		)
 
 		// Get the base branch from the workflow environment variable
