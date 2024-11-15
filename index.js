@@ -13,6 +13,11 @@ const { Octokit } = require('@octokit/rest')
 			'yarn global add npm-check-updates && ncu -u && yarn install'
 		)
 
+		// Configure Git user identity
+		await execAsync(
+			'git config user.email "actions@github.com" && git config user.name "GitHub Action"'
+		)
+
 		// Create a new branch, commit changes, and push to remote
 		const branchName = `dependency-update-${
 			new Date().toISOString().split('T')[0]
